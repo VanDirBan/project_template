@@ -18,10 +18,5 @@ pipeline {
                 }
             }
         }
-        stage("start docker hello_world") {
-            steps {
-                sh 'docker run hello_world'
-            }
-        }
     }
 }
