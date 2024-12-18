@@ -2,7 +2,7 @@
 // Run docker build
 properties([disableConcurrentBuilds()])
 pipeline {
-    agent any
+    agent 'linux'
     options {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
         timestamps()
@@ -14,6 +14,11 @@ pipeline {
                 dir ('docker/toolbox') {
                 	sh 'docker build . '
                 }
+            }
+        }
+        stage("start docker hello_world") {
+            steps {
+                sh 'docker run hello_world'
             }
         }
     }
