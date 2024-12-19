@@ -21,6 +21,11 @@ pipeline {
                 }
             }
         }
+        stage("run docker hello world") {
+            steps {
+                	sh 'docker run hello_world'
+            }
+        }
         stage("create docker image") {
             steps {
                 echo " ============== start building image =================="
